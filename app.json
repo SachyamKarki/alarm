@@ -8,15 +8,36 @@
     "scheme": "reps",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "splash": {
+      "image": "././assets/images/growth.png",
+      "imageWidth": 200,
+      "resizeMode": "contain",
+      "backgroundColor": "#000"
+    },
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.shak.reps",
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "This app needs access to your microphone to record audio.",
+        "NSUserNotificationUsageDescription": "This app needs permission to send you notifications for alarms.",
+        "UIBackgroundModes": ["remote-notification"],
+      "backgroundColor":"#000"
+          }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#000000"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "RECORD_AUDIO",
+        "POST_NOTIFICATIONS",
+        "VIBRATE",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "WAKE_LOCK"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -25,15 +46,7 @@
     },
     "plugins": [
       "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ]
+      "expo-audio"
     ],
     "experiments": {
       "typedRoutes": true
